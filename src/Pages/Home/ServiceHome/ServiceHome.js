@@ -11,7 +11,6 @@ const ServiceHome = () => {
       .then((res) => res.json())
       .then((data) => setServices(data.data));
   }, []);
-  console.log(services);
 
   return (
     <div className="my-10">
@@ -22,7 +21,7 @@ const ServiceHome = () => {
       </div>
       <div className="flex justify-center mt-10">
         <Link to={"/services"}>
-          <Button color="purple">See All</Button>
+          <Button gradientDuoTone="purpleToBlue">See All Services</Button>
         </Link>
       </div>
     </div>

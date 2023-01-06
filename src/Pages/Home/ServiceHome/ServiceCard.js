@@ -1,4 +1,4 @@
-import { Card } from "flowbite-react";
+import { Button, Card } from "flowbite-react";
 import React from "react";
 
 const ServiceCard = ({ service }) => {
@@ -12,6 +12,7 @@ const ServiceCard = ({ service }) => {
           ? service.description.slice(0, 100) + "..."
           : service.description}
       </p>
+      <Button gradientDuoTone="cyanToBlue">Service Details</Button>
     </Card>
   );
 };
