@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SignUpPhoto from "../../assets/Sign-in-up-image/SignUp.jpg";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -12,7 +15,23 @@ const SignUp = () => {
     const password = form.password.value;
 
     console.log(name, photoURL, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        ProfileUpdate(name, photoURL);
+        form.reset();
+      })
+      .catch((error) => console.error(error.message));
   };
+  // profile update
+  const ProfileUpdate = (name, photoURL) => {
+    updateUserProfile(name, photoURL)
+      .then(() => {})
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content justify-between flex-col lg:flex-row">
@@ -27,6 +46,7 @@ const SignUp = () => {
                 <span className="label-text">Name</span>
               </label>
               <input
+                required
                 type="text"
                 name="name"
                 placeholder="name"
@@ -39,6 +59,7 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
+                required
                 name="photoURL"
                 placeholder="PhotoURL"
                 className="input input-bordered"
@@ -72,9 +93,13 @@ const SignUp = () => {
               <button className="btn btn-primary capitalize">Sign Up</button>
             </div>
             <p>
-              Already have an account? <Link className="btn btn-primary capitalize" to={"/signin"}>Sign In</Link>
+              Already have an account?{" "}
+              <Link className="btn btn-primary capitalize" to={"/signin"}>
+                Sign In
+              </Link>
             </p>
           </form>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

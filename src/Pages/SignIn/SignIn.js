@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SignUpPhoto from "../../assets/Sign-in-up-image/SignUp.jpg";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignIn = () => {
+  const { signInUser } = useContext(AuthContext);
   const handleSignIn = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
     console.log(email, password);
   };
   return (
@@ -18,7 +27,7 @@ const SignIn = () => {
           <img className="rounded-xl" src={SignUpPhoto} alt="" />
         </div>
         <div className="card sm:w-full lg:w-1/2 flex-shrink-0 max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-4xl text-center font-bold pt-4">Sign Up Now!</h1>
+          <h1 className="text-4xl text-center font-bold pt-4">Sign In Now!</h1>
           <form onSubmit={handleSignIn} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -59,6 +68,7 @@ const SignIn = () => {
               </Link>
             </p>
           </form>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
