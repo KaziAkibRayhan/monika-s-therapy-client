@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SignUpPhoto from "../../assets/Sign-in-up-image/SignUp.jpg";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -21,6 +25,7 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         ProfileUpdate(name, photoURL);
+        navigate(from, { replace: true });
         form.reset();
       })
       .catch((error) => console.error(error.message));
