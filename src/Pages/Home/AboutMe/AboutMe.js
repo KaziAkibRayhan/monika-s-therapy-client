@@ -6,8 +6,8 @@ import Photo from "../../../assets/About Me/About Me.jpg";
 import Photo2 from "../../../assets/About Me/About Me 2.jpg";
 const AboutMe = () => {
   return (
-    <div className="p-5 relative mx-auto sm:p-10 md:p-16 bg-gray-400 text-gray-100 my-10">
-      <div className="absolute top-28 z-50">
+    <div className="p-5 relative mx-auto sm:p-10 md:p-16 bg-gray-300 text-gray-50 my-10">
+      <div className="absolute top-28 ml-2 z-50">
         <h1 className="text-6xl font-bold text-orange-500">About Me</h1>
         <p className="font-semibold text-black mt-4">
           A therapist is a broad designation that refers to professionals who{" "}

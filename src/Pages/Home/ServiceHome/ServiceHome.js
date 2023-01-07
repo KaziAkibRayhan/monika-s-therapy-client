@@ -13,7 +13,7 @@ const ServiceHome = () => {
   }, []);
 
   return (
-    <div className="my-10">
+    <div className="my-10 bg-gray-200 p-8">
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
