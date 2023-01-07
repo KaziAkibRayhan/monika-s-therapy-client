@@ -2,6 +2,7 @@ import { Button, Card } from "flowbite-react";
 import React from "react";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
   return (
@@ -21,7 +22,12 @@ const ServiceCard = ({ service }) => {
           ? service.description.slice(0, 100) + "..."
           : service.description}
       </p>
-      <Button gradientDuoTone="cyanToBlue">Service Details</Button>
+      <div className="flex justify-between items-center">
+        <p className="font-bold"><span className="text-violet-600">Price: $</span>{service.price}</p>
+        <Link to={`/services/${service._id}`}>
+          <Button gradientDuoTone="cyanToBlue">Service Details</Button>
+        </Link>
+      </div>
     </Card>
   );
 };

@@ -41,7 +41,7 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">
+        <Link to={'/'} className="btn btn-ghost normal-case text-xl">
           <img className="rounded-lg w-12" src={Logo} alt="" />
           <span> Monika's Therapy</span>
         </Link>
