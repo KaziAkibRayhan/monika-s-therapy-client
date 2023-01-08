@@ -1,21 +1,36 @@
 import { Button, Table } from "flowbite-react";
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyReviews(data.data);
+        setRefresh(!refresh);
       })
       .catch((error) => console.error(error));
-  }, [user?.email]);
+  }, [user?.email, refresh]);
 
   const handleDeleteReview = (_id) => {
-    console.log(_id);
+    const proceed = window.confirm("Are you sure delete this review?");
+    if (proceed) {
+      fetch(`http://localhost:5000/myReviews/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            toast(data.message);
+          }
+        })
+        .catch((error) => console.error(error));
+    }
   };
 
   return (
