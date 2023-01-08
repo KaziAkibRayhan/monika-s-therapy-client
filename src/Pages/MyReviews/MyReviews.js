@@ -2,8 +2,10 @@ import { Button, Table } from "flowbite-react";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../Hooks/UseTitle";
 
 const MyReviews = () => {
+  useTitle('My Reviews')
   const { user } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);

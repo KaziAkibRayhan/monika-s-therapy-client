@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SignUpPhoto from "../../assets/Sign-in-up-image/SignUp.jpg";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../Hooks/UseTitle";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  useTitle('Sign Up')
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();

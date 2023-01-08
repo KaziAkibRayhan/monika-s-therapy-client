@@ -1,7 +1,9 @@
 import { Table } from "flowbite-react";
 import React from "react";
+import useTitle from "../../Hooks/UseTitle";
 
 const Blogs = () => {
+  useTitle('Blogs')
   return (
     <section className="dark:dark:bg-gray-800 dark:dark:text-gray-100">
       <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
