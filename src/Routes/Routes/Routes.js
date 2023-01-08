@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
+import AddService from "../../Pages/AddService/AddService";
 import Blog from "../../Pages/Blogs/Blogs";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import ServiceDetails from "../../Pages/Services/ServiceDetails/ServiceDetails";
@@ -13,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/services", element: <Services></Services> },
@@ -28,6 +31,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addService",
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
           </PrivateRoute>
         ),
       },
