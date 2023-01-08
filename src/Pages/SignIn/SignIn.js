@@ -64,7 +64,7 @@ const SignIn = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary capitalize">Sign In</button>
+              <button type="submit" className="btn btn-primary capitalize">Sign In</button>
             </div>
             <p>
               New to this site?{" "}

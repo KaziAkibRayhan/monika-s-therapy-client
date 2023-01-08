@@ -95,7 +95,7 @@ const SignUp = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary capitalize">Sign Up</button>
+              <button type="submit" className="btn btn-primary capitalize">Sign Up</button>
             </div>
             <p>
               Already have an account?{" "}

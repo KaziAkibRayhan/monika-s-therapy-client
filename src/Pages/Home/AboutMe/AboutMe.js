@@ -20,15 +20,17 @@ const AboutMe = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-24 z-50">
           <div className="p-6 pb-12 m-4 mx-auto -mt-20 space-y-6 w-full lg:rounded-md bg-gray-100">
             <div className="space-y-2">
-              <div class="text-center">
+              <div className="text-center">
                 <div className="flex justify-center">
                   <BsTelephonePlusFill className="text-gray-600 w-8 h-8" />
                 </div>
                 <div>
-                  <h6 class="text-5xl font-bold text-rose-500 mt-1">1,820 +</h6>
+                  <h6 className="text-5xl font-bold text-rose-500 mt-1">
+                    1,820 +
+                  </h6>
                 </div>
                 <div>
-                  <p class="font-bold text-black mt-4">
+                  <p className="font-bold text-black mt-4">
                     Messages, chat, video sessions.
                   </p>
                 </div>
@@ -37,30 +39,36 @@ const AboutMe = () => {
           </div>
           <div className="p-6 pb-12 m-4 mx-auto -mt-20 space-y-6 w-full  lg:rounded-md bg-gray-100">
             <div className="space-y-2">
-              <div class="text-center">
+              <div className="text-center">
                 <div className="flex justify-center">
                   <BsCardChecklist className="text-gray-600 w-8 h-8" />
                 </div>
                 <div>
-                  <h6 class="text-5xl font-bold text-rose-500 mt-1">385 +</h6>
+                  <h6 className="text-5xl font-bold text-rose-500 mt-1">
+                    385 +
+                  </h6>
                 </div>
                 <div>
-                  <p class="font-bold text-black mt-4">People got help.</p>
+                  <p className="font-bold text-black mt-4">People got help.</p>
                 </div>
               </div>
             </div>
           </div>
           <div className="p-6 pb-12 m-4 mx-auto -mt-20 space-y-6 w-full  lg:rounded-md bg-gray-100">
             <div className="space-y-2">
-              <div class="text-center">
+              <div className="text-center">
                 <div className="flex justify-center">
                   <RiMentalHealthFill className="text-gray-600 w-8 h-8" />
                 </div>
                 <div>
-                  <h6 class="text-5xl font-bold text-rose-500 mt-1">1,000 +</h6>
+                  <h6 className="text-5xl font-bold text-rose-500 mt-1">
+                    1,000 +
+                  </h6>
                 </div>
                 <div>
-                  <p class="font-bold text-black mt-4">clients worldwide.</p>
+                  <p className="font-bold text-black mt-4">
+                    clients worldwide.
+                  </p>
                 </div>
               </div>
             </div>
@@ -80,7 +88,7 @@ const AboutMe = () => {
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div className="flex items-center justify-center w-12 h-12 rounded-md dark:dark:bg-violet-400 dark:dark:text-gray-900">
-                      <ImCheckmark className="w-6 h-6"></ImCheckmark>
+                        <ImCheckmark className="w-6 h-6"></ImCheckmark>
                       </div>
                     </div>
                     <div className="ml-4">
@@ -121,7 +129,7 @@ const AboutMe = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium leading-6 dark:dark:text-gray-50">
-                      Stress and Lifestyle Management
+                        Stress and Lifestyle Management
                       </h4>
                     </div>
                   </div>
