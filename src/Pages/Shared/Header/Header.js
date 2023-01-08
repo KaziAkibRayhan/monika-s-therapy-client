@@ -21,6 +21,9 @@ const Header = () => {
       <li className="font-bold">
         <Link to={"/services"}>Services</Link>
       </li>
+      <li className="font-bold">
+        <Link to={"/blogs"}>Blogs</Link>
+      </li>
       {user?.email ? (
         <>
           <li className="font-bold">
@@ -79,7 +82,9 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        {user?.photoURL && <img className="w-12 h-12 rounded-2xl" src={user.photoURL} alt="" />}
+        {user?.photoURL && (
+          <img className="w-12 h-12 rounded-2xl" src={user.photoURL} alt="" />
+        )}
       </div>
     </div>
   );
