@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import SignUpPhoto from "../../assets/Sign-in-up-image/SignUp.jpg";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/UseTitle";
@@ -23,14 +24,12 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, photoURL, email, password);
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
         ProfileUpdate(name, photoURL);
         navigate(from, { replace: true });
+        toast.success('Sign Up Successful')
         form.reset();
         setIsLoading(false);
       })

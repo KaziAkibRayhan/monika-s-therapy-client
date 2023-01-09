@@ -96,13 +96,17 @@ const ServiceDetails = () => {
 
       {/* Review section start */}
       <section>
+        <h2 className="text-4xl text-center text-orange-500 font-bold my-4">
+          Reviews for this service!
+        </h2>
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col lg:flex-row">
             <div className="w-1/2 text-center lg:text-left">
               {reviews.length === 0 && (
-                <h1 className="text-6xl">No Reviews This Service</h1>
+                <h3 className="text-3xl text-orange-500 font-bold">
+                  No Reviews This Service
+                </h3>
               )}
-              <h1 className="text-5xl font-bold">Reviews for this service!</h1>
               {reviews?.map((review) => (
                 <div
                   key={review._id}
@@ -144,6 +148,9 @@ const ServiceDetails = () => {
             {user?.email ? (
               <>
                 <div className=" w-1/2 card flex-shrink-0 max-w-sm shadow-2xl bg-base-100">
+                  <h5 className="text-xl text-center text-orange-500 font-bold my-4">
+                    Please Add Your Review Here...
+                  </h5>
                   <form onSubmit={handleReview} className="card-body">
                     <div className="form-control">
                       <label className="label">
@@ -197,10 +204,14 @@ const ServiceDetails = () => {
             ) : (
               <>
                 <p>
-                  Please sign in to add a review{" "}
-                  <Link className="btn btn-primary" to={"/signin"}>
-                    Sign In
-                  </Link>
+                  <span className="text-2xl font-bold text-orange-500 mb-6 block">
+                    Please sign in, To add your review here...
+                  </span>{" "}
+                  <span className="block">
+                    <Link className="w-full btn btn-primary" to={"/signin"}>
+                      Sign In
+                    </Link>
+                  </span>
                 </p>
               </>
             )}

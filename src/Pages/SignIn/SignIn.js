@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import SignUpPhoto from "../../assets/Sign-in-up-image/SignUp.jpg";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/UseTitle";
@@ -23,13 +24,11 @@ const SignIn = () => {
 
     signInUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
         navigate(from, { replace: true });
         setIsLoading(false);
+        toast.success('Sign Successful')
       })
       .catch((error) => console.log(error));
-    console.log(email, password);
   };
   return (
     <div className="hero min-h-screen bg-base-200">

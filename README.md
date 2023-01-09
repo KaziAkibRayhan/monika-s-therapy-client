@@ -13,5 +13,6 @@
 * CSS Library use Tailwind CSS and Tailwind Components Flow-bite-React use.
 
 # For Backend
+* server use Node JS, Express js
 * Use Mongodb No-SQL server.
 * create and load data And delete data  and update data . That's implement crud Operation.

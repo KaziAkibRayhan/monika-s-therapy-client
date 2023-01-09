@@ -1,4 +1,3 @@
-import { Button } from "flowbite-react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/logo/physical-therapy-logo.png";
