@@ -12,7 +12,9 @@ const ServiceDetails = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch(`https://monika-s-therapy-server.vercel.app/reviews?service_id=${_id}`)
+    fetch(
+      `https://monika-s-therapy-server.vercel.app/reviews?service_id=${_id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data.data);
@@ -50,6 +52,7 @@ const ServiceDetails = () => {
         if (data.success) {
           toast(data.message);
         }
+        form.reset();
       })
       .catch((error) => console.error(error));
   };

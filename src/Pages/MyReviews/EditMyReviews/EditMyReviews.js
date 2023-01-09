@@ -45,6 +45,7 @@ const EditMyReviews = () => {
         .then((data) => {
           if (data.success) {
             toast(data.message);
+            
           }
         })
         .catch((error) => console.error(error));
