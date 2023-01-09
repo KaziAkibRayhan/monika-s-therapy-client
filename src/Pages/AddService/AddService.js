@@ -18,7 +18,7 @@ const AddService = () => {
       description,
     };
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://monika-s-therapy-server.vercel.app/services", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import { Button, Table } from "flowbite-react";
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/UseTitle";
@@ -12,7 +12,7 @@ const MyReviews = () => {
   const [refresh, setRefresh] = useState(false);
   const navigate = useNavigate()
   useEffect(() => {
-    fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
+    fetch(`https://monika-s-therapy-server.vercel.app/myReviews?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyReviews(data.data);
@@ -24,7 +24,7 @@ const MyReviews = () => {
   const handleDeleteReview = (_id) => {
     const proceed = window.confirm("Are you sure delete this review?");
     if (proceed) {
-      fetch(`http://localhost:5000/myReviews/${_id}`, {
+      fetch(`https://monika-s-therapy-server.vercel.app/myReviews/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

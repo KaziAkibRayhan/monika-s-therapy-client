@@ -10,7 +10,7 @@ const EditMyReviews = () => {
   const { id } = router;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myReview/${id}`)
+    fetch(`https://monika-s-therapy-server.vercel.app/myReview/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setMyReview(data.data);
@@ -34,7 +34,7 @@ const EditMyReviews = () => {
       };
       console.log(review);
 
-      fetch(`http://localhost:5000/myReview/${id}`,{
+      fetch(`https://monika-s-therapy-server.vercel.app/myReview/${id}`,{
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

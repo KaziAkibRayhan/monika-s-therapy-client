@@ -10,7 +10,7 @@ const ServiceHome = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/homeService")
+    fetch("https://monika-s-therapy-server.vercel.app/homeService")
       .then((res) => res.json())
       .then((data) => {
         setServices(data.data);
