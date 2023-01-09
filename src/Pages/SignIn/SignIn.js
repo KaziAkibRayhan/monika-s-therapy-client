@@ -74,7 +74,7 @@ const SignIn = () => {
                 Sign In
               </button>
             </div>
-            <p>
+            <>
               New to this site?{" "}
               {isLoading ? (
                 <LoadingSpinner></LoadingSpinner>
@@ -83,7 +83,7 @@ const SignIn = () => {
                   Sign Up
                 </Link>
               )}
-            </p>
+            </>
           </form>
           <SocialLogin></SocialLogin>
         </div>

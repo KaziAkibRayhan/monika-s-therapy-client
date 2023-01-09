@@ -105,7 +105,7 @@ const SignUp = () => {
                 Sign Up
               </button>
             </div>
-            <p>
+            <>
               Already have an account?{" "}
               {isLoading ? (
                 <LoadingSpinner></LoadingSpinner>
@@ -114,7 +114,7 @@ const SignUp = () => {
                   Sign In
                 </Link>
               )}
-            </p>
+            </>
           </form>
           <SocialLogin></SocialLogin>
         </div>

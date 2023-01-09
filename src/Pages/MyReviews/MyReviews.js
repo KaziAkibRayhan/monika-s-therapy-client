@@ -1,14 +1,16 @@
 import { Button, Table } from "flowbite-react";
 import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/UseTitle";
 
 const MyReviews = () => {
-  useTitle('My Reviews')
+  useTitle("My Reviews");
   const { user } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const navigate = useNavigate()
   useEffect(() => {
     fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
       .then((res) => res.json())
@@ -34,6 +36,11 @@ const MyReviews = () => {
         .catch((error) => console.error(error));
     }
   };
+
+  // handle Edit
+  const handleEdit = (id) =>{
+    navigate(`/editMyReview/${id}`)
+  }
 
   return (
     <div>
@@ -75,7 +82,9 @@ const MyReviews = () => {
                       >
                         Delete Review
                       </Button>
-                      <Button>Edit Review</Button>
+                      <Button onClick={ () => handleEdit(myReview._id)}>
+                        Edit Review
+                      </Button>
                     </div>
                   </Table.Cell>
                 </Table.Row>

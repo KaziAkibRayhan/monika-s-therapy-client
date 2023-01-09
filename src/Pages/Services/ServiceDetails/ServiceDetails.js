@@ -21,8 +21,6 @@ const ServiceDetails = () => {
       .catch((error) => console.error(error));
   }, [_id, refresh]);
 
-  console.log(reviews);
-
   const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -39,7 +37,6 @@ const ServiceDetails = () => {
       service_id: _id,
       serviceName: serviceName,
     };
-    console.log(review);
 
     fetch("http://localhost:5000/reviews", {
       method: "POST",

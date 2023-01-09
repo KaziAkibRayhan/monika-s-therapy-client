@@ -4,6 +4,7 @@ import AddService from "../../Pages/AddService/AddService";
 import Blog from "../../Pages/Blogs/Blogs";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
+import EditMyReviews from "../../Pages/MyReviews/EditMyReviews/EditMyReviews";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import ServiceDetails from "../../Pages/Services/ServiceDetails/ServiceDetails";
 import Services from "../../Pages/Services/Services";
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddService></AddService>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/editMyReview/:id",
+        element: (
+          <PrivateRoute>
+            <EditMyReviews></EditMyReviews>
           </PrivateRoute>
         ),
       },
