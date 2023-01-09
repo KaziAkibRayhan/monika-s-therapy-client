@@ -1,18 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SignUpPhoto from "../../assets/Sign-in-up-image/SignUp.jpg";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/UseTitle";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
-  useTitle('Sign Up')
+  useTitle("Sign Up");
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUp = (event) => {
+    setIsLoading(true);
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -29,6 +32,7 @@ const SignUp = () => {
         ProfileUpdate(name, photoURL);
         navigate(from, { replace: true });
         form.reset();
+        setIsLoading(false);
       })
       .catch((error) => console.error(error.message));
   };
@@ -97,13 +101,19 @@ const SignUp = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary capitalize">Sign Up</button>
+              <button type="submit" className="btn btn-primary capitalize">
+                Sign Up
+              </button>
             </div>
             <p>
               Already have an account?{" "}
-              <Link className="btn btn-primary capitalize" to={"/signin"}>
-                Sign In
-              </Link>
+              {isLoading ? (
+                <LoadingSpinner></LoadingSpinner>
+              ) : (
+                <Link className="btn btn-primary capitalize" to={"/signin"}>
+                  Sign In
+                </Link>
+              )}
             </p>
           </form>
           <SocialLogin></SocialLogin>
